@@ -125,6 +125,8 @@ class ExcelResponse(HttpResponse):
             for cell in data:
                 cell = WriteOnlyCell(worksheet, cell)
                 cell.font = font
+                cell.style.alignment.wrap_text = True
+                print(cell.style.alignment)
                 row.append(cell)
 
         worksheet.append(row)
